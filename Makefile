@@ -11,3 +11,6 @@ all: mpd-notification.c
 
 clean:
 	/bin/rm -f *.o *~ mpd-notification
+
+install:
+	install -pv mpd-notification /usr/local/bin
