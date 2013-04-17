@@ -24,7 +24,7 @@
 #define ICON_SOUND	"sound"
 
 #define TEXT_TOPIC	"MPD Notification"
-#define TEXT_PLAY	"Playing <b>%s</b>\nby <i>%s</i>\nfrom <i>%s</i>"
+#define TEXT_PLAY       "Playing: <b>%s</b> - <i>%s</i> - <b>%s</b>"
 #define TEXT_PAUSE	"Paused playback"
 #define TEXT_STOP	"Stopped playback"
 #define TEXT_UNKNOWN	"(unknown)"
@@ -74,7 +74,7 @@ int main(int argc, char ** argv) {
 				album = TEXT_UNKNOWN;
 
 			notifystr = malloc(strlen(TEXT_PLAY) + strlen(title) + strlen(artist) + strlen(album));
-			sprintf(notifystr, TEXT_PLAY, title, artist, album);
+			sprintf(notifystr, TEXT_PLAY, artist, album, title);
 
 			mpd_song_free(song);
 		} else if (state == MPD_STATE_PAUSE)
